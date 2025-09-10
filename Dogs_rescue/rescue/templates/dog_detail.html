@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ dog.name }} Details</title>
+</head>
+<body>
+    <h1>{{ dog.name }}</h1>
+    <p><strong>Breed:</strong> {{ dog.breed }}</p>
+    <p><strong>Color:</strong> {{ dog.color }}</p>
+    <p><strong>Age:</strong> {{ dog.age }}</p>
+    <p><strong>Status:</strong> {{ dog.status }}</p>
+    <p><strong>Location:</strong> {{ dog.location }}</p>
+    {% if dog.image %}
+    <img src="{{ dog.image.url }}" alt="{{ dog.image.url }}" style="max-width: 400px;">
+    {% endif %}
+    
+    <a href="{% url 'dog_list' %}">Back to list</a>
+</body>
+</html>

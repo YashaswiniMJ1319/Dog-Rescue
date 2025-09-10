@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dogs Sorted by Name</title>
+    
+</head>
+<body>
+    <h1>Dogs Sorted by Name</h1>
+
+    {% if dogs %}
+        <ul>
+            {% for dog in dogs %}
+                <li>{{ dog.name }} </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No dogs found.</p>
+    {% endif %}
+
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>
