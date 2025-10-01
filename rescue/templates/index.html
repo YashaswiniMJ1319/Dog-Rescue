@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dog Rescue - Home</title>
+  <style>
+    /* Example styling */
+    .navbar {
+      background-color: #f8f8f8;
+      padding: 1rem;
+    }
+    .btn {
+      background-color: #ffcc00;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-right: 0.5rem;
+      text-decoration: none;
+      color: #333;
+      border-radius: 5px;
+    }
+    .contact-info {
+      margin-top: 2rem;
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Dog Rescue</h1>
+    <p>Hello, {{ user.username }}!</p>
+    <nav class="navbar">
+      <a href="#" class="btn">Dogs name</a>
+      <a href="#" class="btn">Breed</a>
+      <a href="#" class="btn">View Available Dogs</a>
+      <a href="#" class="btn">View Last Dogs</a>
+      <a href="{% url 'missing_dogs' %}">Missing</a>
+
+      
+
+    </nav>
+  </header>
+
+  <main>
+    <h2>Dogs Details</h2>
+    <ul>
+      <li><a href="{% url 'missing_dogs' %}">Missing</a></li>
+      <li><a href="{% url 'found_dogs' %}">Found</a></li>
+      <li><a href="{% url 'adopted_dogs' %}">Adopted</a></li>
+    </ul>
+
+    <!-- Contact Info Section -->
+    {% if contact %}
+      <div class="contact-info">
+        <h3>Contact Us</h3>
+        <p>Phone: {{ contact.phone }}</p>
+        <p>Email: {{ contact.email }}</p>
+        <p>Address: {{ contact.address }}</p>
+      </div>
+    {% else %}
+      <p>No contact information available.</p>
+    {% endif %}
+    
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dog Rescue</p>
+  </footer>
+</body>
+</html>

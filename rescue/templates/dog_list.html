@@ -1,0 +1,31 @@
+{% for dog in dogs %}
+    <div>
+        <h3>{{ dog.name }} ({{ dog.status }})</h3>
+        <p>Breed: {{ dog.breed }}</p>
+        <p>Color: {{ dog.color }}</p>
+        <img src="{{ dog.image.url }}" width="200">
+    </div>
+{% endfor %}
+<form method="GET" action="{% url 'search_dogs' %}">
+    <input type="text" name="q" placeholder="Search by breed...">
+    <button type="submit">Search</button>
+</form>
+{% for dog in dogs %}
+    <div>
+        <h3>
+            <a href="{% url 'dog_detail' dog.pk %}">
+                {{ dog.name }} ({{ dog.status }})
+            </a>
+        </h3>
+        
+        <p>Breed: {{ dog.breed }}</p>
+        <p>Color: {{ dog.color }}</p>
+        <p>url: {{ dog.image }}</p>
+        {% if dog.image %}
+        <img src="{{ dog.image }}" width="200">
+        <img src="{{ dog.image.url}}" width="200">
+        {% endif %}
+    </div>
+{% endfor %}
+
+
